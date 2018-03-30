@@ -71,7 +71,6 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>**/*.*</include>
-
                 </includes>
             </resource>
         </resources>
