@@ -6,7 +6,6 @@ import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.frei.zabbtest.dto.CsvSuggestionDto;
 import lombok.Cleanup;
 import lombok.NonNull;
-import lombok.extern.log4j.Log4j2;
 import org.assertj.core.util.VisibleForTesting;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +24,7 @@ import java.util.List;
  * by Andreichenko
  */
 
-@Log4j2
+
 @Component
 public class CsvSuggestionWriter {
 

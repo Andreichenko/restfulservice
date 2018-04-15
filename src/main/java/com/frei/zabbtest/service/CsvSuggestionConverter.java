@@ -3,7 +3,6 @@ package com.frei.zabbtest.service;
 import com.frei.zabbtest.domain.Suggestion;
 import com.frei.zabbtest.dto.CsvSuggestionDto;
 import lombok.NonNull;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Component;
  */
 
 
-@Log4j2
 @Component
 public class CsvSuggestionConverter {
 
