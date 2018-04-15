@@ -1,19 +1,21 @@
 package com.frei.zabbtest;
 
 
-import com.frei.zabbtest.dto.CsvSuggestionDto;
 import com.frei.zabbtest.service.CsvSuggestionConverter;
 import com.frei.zabbtest.service.CsvSuggestionWriter;
 import com.frei.zabbtest.service.ZabbApiClient;
 import com.google.common.collect.ImmutableList;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -37,7 +39,7 @@ public class Application implements CommandLineRunner{
 
     @Bean
     public RestTemplate restTemplate(){
-
+        return new RestTemplate(new HttpComponentsClientHttpRequestFactory(HttpClientBuilder.create().build()));
     }
 
     public static void main(String[] args) {
@@ -50,9 +52,9 @@ public class Application implements CommandLineRunner{
             String fileName = cityName + ".csv"; //todo maybe use StringBuilder???
         //  String fileName = StringBuilder(cityname).append(".csv").toString();  todo here
 
-        csvSuggestionWriter.write(fileName, zabbApiClient.findSuggestionByCity().stream()
-                .map(csvSuggestionConverter::toCsvSuggestionDto)
-                .collect(collictingAndThen(toList(), ImmutableList::copyOf)));
+        csvSuggestionWriter.write(fileName, zabbApiClient.findSuggestionByCity(cityName).stream()
+                .map(csvSuggestionConverter::toCsvSuggestiondto)
+                .collect(collectingAndThen(toList(), ImmutableList::copyOf)));
 
     }
 }
