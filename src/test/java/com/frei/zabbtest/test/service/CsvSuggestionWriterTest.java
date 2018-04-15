@@ -26,10 +26,20 @@ import static org.junit.Assert.assertThat;
 public class CsvSuggestionWriterTest {
     private CsvSuggestionWriter suit;
 
+    /**
+     *
+     * @throws Exception  обработка исключения
+     */
+
     @Before
     public void setUp() throws Exception{
         suit = new CsvSuggestionWriter();
     }
+
+    /**
+     *
+     * @throws Exception обработка исключения
+     */
 
     @Test
     public void testDoWrite() throws Exception{
