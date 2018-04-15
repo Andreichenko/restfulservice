@@ -20,6 +20,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class CsvSuggestionConverter {
 
+    /**
+     *
+     * @param input добавленные данные в метод конвертора
+     * @return    возвращает список данных
+     */
 
     public CsvSuggestionDto toCsvSuggestiondto(@NonNull Suggestion input){
         CsvSuggestionDto dto = new CsvSuggestionDto();

@@ -34,6 +34,12 @@ public class CsvSuggestionWriter {
             .withHeader()
             .sortedBy("_id", "name", "type", "latitude", "longtitude");
 
+    /**
+     *
+     * @param fileName имя файла, которое должно записывать при парсинге
+     * @param data     возврат данных
+     */
+
     public void write(@NonNull String fileName, @NonNull List<CsvSuggestionDto> data){
         try{
             @Cleanup Writer writer = new PrintWriter(new FileWriter(fileName), true);
@@ -42,6 +48,13 @@ public class CsvSuggestionWriter {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     *
+     * @param writer         запись данных
+     * @param data           параметр данных для теста
+     * @throws IOException   исключение
+     */
 
     @VisibleForTesting
     protected void doWrite(@NonNull Writer writer, @NonNull List<CsvSuggestionDto> data) throws IOException {
