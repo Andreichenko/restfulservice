@@ -6,6 +6,8 @@ import com.frei.zabbtest.domain.GeoPositon;
 import com.frei.zabbtest.domain.Suggestion;
 import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
+import org.mockito.internal.matchers.NotNull;
+import org.mockito.internal.matchers.Null;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -22,10 +24,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SuggestionTest {
 
+    /**
+     *
+     * @throws Exception  отработка исключения
+     */
+
     @Test
     public void testJsonFormat() throws Exception{
 
-        //prepare
+        //prepare todo prepare that data?
+
         String source = "{" +
                 "\"_id\": 376217," +
                 "\"key\": \"ber-key\"," +
@@ -63,8 +71,9 @@ public class SuggestionTest {
                 .alternativeNames(ImmutableMap.of("is", "Berlín", "fi", "Berliini", "zh", "柏林"))
                 .build();
 
-
+        // test and validate  todo test failed ???? why
         ObjectMapper mapper = new ObjectMapper();
         assertThat(mapper.readValue(source, Suggestion.class), equalTo(expected));
+
     }
 }
