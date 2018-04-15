@@ -56,7 +56,7 @@ public class CsvSuggestionWriter {
      */
 
     @VisibleForTesting
-    protected void doWrite(@NonNull Writer writer, @NonNull List<CsvSuggestionDto> data) throws IOException {
+    public void doWrite(@NonNull Writer writer, @NonNull List<CsvSuggestionDto> data) throws IOException {
         csvMapper.writer().with(csvSchema).writeValues(writer).writeAll(data);
     }
 }
