@@ -33,6 +33,12 @@ public class ZabbApiClient {
     @Autowired
     private RestTemplate restTemplate;
 
+    /**
+     *
+     * @param city параметр для указания города для поиска данных
+     * @return     возвращаемое значение ответа тела от списка
+     */
+
     public List<Suggestion> findSuggestionByCity(@NonNull String city){
         ResponseEntity<Suggestion[]> response =
                 restTemplate.getForEntity(suggestionUrl, Suggestion[].class, ImmutableMap.of("city", city));
