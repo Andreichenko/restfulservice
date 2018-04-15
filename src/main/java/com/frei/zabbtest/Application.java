@@ -46,6 +46,7 @@ public class Application implements CommandLineRunner{
         new SpringApplicationBuilder(Application.class).bannerMode(Banner.Mode.OFF).run(args);
     }
 
+
     @Override
     public void run(String... strings) throws Exception {
             String cityName = strings[0].trim();
